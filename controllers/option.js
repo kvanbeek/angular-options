@@ -9,6 +9,10 @@ angular
     option.chain = [];
     option.orders = [];
 
+    option.dates = [];
+    option.date = "";
+
+    option.loading = false;
 
     option.getValues = function () {
       // console.log(OptionCalculator.probability(option.stock, option.strike, option.time, option.volatility));
@@ -32,7 +36,25 @@ angular
 
     option.getChain = function(){
       console.log(option.ticker);
-      var getOptions = OptionCalculator.getOptions(option.ticker).then(function (response) {
+
+      option.loading = true;
+
+      OptionCalculator.getDates(option.ticker).then(function (response) {
+        console.log(response);
+        for (var i = 0; i < response.option.length; i++) {
+          console.log(response.option[i].value);
+          console.log(response.option[i].content);
+          var newDate = {
+            value: response.option[i].value,
+            content: response.option[i].content
+          };
+
+          option.dates.push(newDate);
+
+        }
+      });
+
+      var getOptions = OptionCalculator.getOptions(option.ticker, option.date).then(function (response) {
         console.log('the response');
         console.log(response);
         console.log(response.td.length/10);
@@ -45,9 +67,11 @@ angular
           console.log(test);
           newResponse.push(test);
         }
+        option.loading = false;
         option.chain = newResponse;
       });
     }
+
 
 
     option.buy = function (equity) {
@@ -99,7 +123,43 @@ angular
 
     option.change = function () {
       console.log("Change on table");
+
+      option.loading = true;
+      console.log(option.date);
+      OptionCalculator.getOptions(option.ticker, option.date).then(function (response) {
+        console.log('the response');
+        console.log(response);
+        console.log(response.td.length/10);
+
+        var newResponse = [];
+
+        for (var i = 0; i < response.td.length; i+=10) {
+          var test = response.td.slice(i, i+10);
+          console.log(i);
+          console.log(test);
+          newResponse.push(test);
+        }
+        option.loading = false;
+        option.chain = newResponse;
+      });
     }
+
+
+
+    // OptionCalculator.getDates('MSFT').then(function (response) {
+    //   console.log(response);
+    //   for (var i = 0; i < response.option.length; i++) {
+    //     console.log(response.option[i].value);
+    //     console.log(response.option[i].content);
+    //     var newDate = {
+    //       value: response.option[i].value,
+    //       content: response.option[i].content
+    //     };
+    //
+    //     option.dates.push(newDate);
+    //
+    //   }
+    // });
 
 
     option.data = [];
@@ -144,7 +204,7 @@ angular
 
     option.buildGraph = function (stock, options) {
       console.log(options);
-      for (var i = -10; i < 20; i+= 0.5) {
+      for (var i = -10; i < 20; i+= 0.1) {
         var dataSet = {
         x: stock + i,
         val_0: buildDataSet(stock + i, options),

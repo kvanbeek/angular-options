@@ -1,0 +1,17 @@
+<form class="simple-form">
+    Stock Price: <input type="text" ng-model="option.stock" /><br />
+    Strike Price: <input type="text" ng-model="option.strike" /><br />
+    Risk free rate: <input type="text" ng-model="option.risk"/><br />
+    Volatility: <input type="text" ng-model="option.volatility"/><br />
+    Time: <input type="text" ng-model="option.time"/><br />
+    <input type="radio" ng-model="option.kind" ng-value="true" />Call
+    <input type="radio" ng-model="option.kind" ng-value="false" />Put<br />
+    <input type="submit" ng-click="option.getValues()" value="Calculate" />
+</form>
+<div>
+  <span>Price: {{option.price}}</span><br>
+  <span>Delta: {{option.delta}}</span><br>
+  <span>Gamma: {{option.gamma}}</span><br>
+  <span>Theta: {{option.theta}}</span><br>
+  <span>Rho: {{option.rho}}</span><br>
+</div>

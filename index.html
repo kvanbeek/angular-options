@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html ng-app="itunes-search-app">
 <head>
-	<title>iTunes Search</title>
+	<title>OptionGraphs</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="main.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<base href="/">
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69723593-1', 'auto');
+  ga('send', 'pageview');
+
+	</script>
 </head>
 <body>
 
+
 <div class="container">
-	<div class="page-header">
+
+<nav-bar></nav-bar>
+
+
+
+	<!-- <div class="page-header">
 	  <h1>Options</h1>
-	</div>
+	</div> -->
 	<!-- <navigation></navigation> -->
 	<br>
+
+
+
+
 	<div ng-view></div>
 </div>
 
@@ -28,7 +50,9 @@
 <script src="/controllers/songs-search.js"></script>
 <script src="/controllers/artist.js"></script>
 <script src="/controllers/option.js"></script>
+<script src="/controllers/calculator.js"></script>
 <script src="/directives/itunes-album.js"></script>
+<script src="/directives/navbar.js"></script>
 <script src="/services/itunes.js"></script>
 <script src="/services/artist.js"></script>
 <script src="/services/optioncalculator.js"></script>

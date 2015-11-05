@@ -117,8 +117,10 @@ angular
 
       },
 
-      getOptions: function(ticker) {
-  			var url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%27http%3A%2F%2Ffinance.yahoo.com%2Fq%2Fop%3Fs%3D' + ticker + '%2BOptions%27%20and%20xpath%3D%27%2F%2F*%5B%40id%3D%22optionsCallsTable%22%5D%2Fdiv%5B2%5D%2Fdiv%2Ftable%2Ftbody%2Ftr%2Ftd%27&format=json&diagnostics=true&callback=';
+      getOptions: function(ticker, date) {
+
+        var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Ffinance.yahoo.com%2Fq%2Fop%3Fs%3D" + ticker + "%26date%3D" + date + "'%20and%20xpath%3D'%2F%2F*%5B%40id%3D%22optionsCallsTable%22%5D%2Fdiv%5B2%5D%2Fdiv%2Ftable%2Ftbody%2Ftr%2Ftd'&format=json&diagnostics=true&callback="
+  			// var url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%27http%3A%2F%2Ffinance.yahoo.com%2Fq%2Fop%3Fs%3D' + ticker + '%2BOptions%27%20and%20xpath%3D%27%2F%2F*%5B%40id%3D%22optionsCallsTable%22%5D%2Fdiv%5B2%5D%2Fdiv%2Ftable%2Ftbody%2Ftr%2Ftd%27&format=json&diagnostics=true&callback=';
   			var promise = $http.get(url);
         console.log('running get options');
   			// return promise;
@@ -130,6 +132,17 @@ angular
 
       getQuote: function(ticker){
         var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20%20%28%22" + ticker + "%22%29&format=json&diagnostics=true&env=http%3A%2F%2Fdatatables.org%2Falltables.env";
+  			var promise = $http.get(url);
+        console.log('running get quote');
+  			// return promise;
+  			return promise.then(function(response) {
+          // console.log(response);
+  				return response.data.query.results;
+  			});
+      },
+
+      getDates: function(ticker){
+        var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Ffinance.yahoo.com%2Fq%2Fop%3Fs%3D" + ticker + "%2BOptions'%20and%20xpath%3D'%2F%2F*%5B%40id%3D%22options_menu%22%5D%2Fform%2Fselect%2Foption%2F%40value'&format=json&diagnostics=true&callback=";
   			var promise = $http.get(url);
         console.log('running get quote');
   			// return promise;
