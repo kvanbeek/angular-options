@@ -1,0 +1,101 @@
+
+<div class="container">
+    <linechart data="option.data" options="option.options"></linechart>
+</div>
+
+
+<table id="orderTable" ng-if="option.orderBook">
+  <tr>
+    <th>Side</th>
+    <th>Quantity</th>
+    <th>Symbol</th>
+    <th>Exp</th>
+    <th>Strike</th>
+    <th>Type</th>
+    <th>Premium</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="order in option.orders">
+    <td>{{order.side}}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{order.strike}}</td>
+    <td>{{order.type}}</td>
+    <td>{{order.premium}}</td>
+    <td><a ng-click="option.remove($index)">Remove</a></td>
+  </tr>
+</table>
+
+
+
+
+<form class="form-inline" ng-submit="option.getChain(); option.getQuote()">
+  <div class="form-group">
+    <div class="input-group">
+      <input type="search" class="form-control" placeholder="Stock Ticker" ng-model="option.ticker">
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary">
+</form>
+
+<div>{{option.quote}}</div>
+
+
+<table>
+  <tr>
+    <th>Strike</th>
+    <th>Name</th>
+    <th>Last</th>
+    <th>Bid</th>
+    <th>Ask</th>
+    <th>Change</th>
+    <th>Percent Change</th>
+    <th>Volume</th>
+    <th>Open Interest</th>
+    <th>Implied Volatility</th>
+  </tr>
+  <tr ng-repeat="equity in option.chain">
+    <td>{{equity[0].strong.a.content}}</td>
+    <td>{{equity[1].div.a.content}}</td>
+    <td>{{equity[2].div.content}}</td>
+    <td><a ng-click="option.buy(equity)">{{equity[3].div.content}}</a></td>
+    <td><a ng-click="option.sell(equity)">{{equity[4].div.content}}</a></td>
+    <td>{{equity[5].div.content}}</td>
+    <td>{{equity[6].div.content}}</td>
+    <td>{{equity[7].strong.content}}</td>
+    <td>{{equity[8].div.content}}</td>
+    <td>{{equity[9].div.content}}</td>
+  </tr>
+</table>
+
+
+<form class="simple-form">
+    Stock Price: <input type="text" ng-model="option.stock" /><br />
+    Strike Price: <input type="text" ng-model="option.strike" /><br />
+    Risk free rate: <input type="text" ng-model="option.risk"/><br />
+    Volatility: <input type="text" ng-model="option.volatility"/><br />
+    Time: <input type="text" ng-model="option.time"/><br />
+    <input type="radio" ng-model="option.kind" ng-value="true" />Call
+    <input type="radio" ng-model="option.kind" ng-value="false" />Put<br />
+    <input type="submit" ng-click="option.getValues()" value="Calculate" />
+</form>
+<div>
+  <span>Price: {{option.price}}</span><br>
+  <span>Delta: {{option.delta}}</span><br>
+  <span>Gamma: {{option.gamma}}</span><br>
+  <span>Theta: {{option.theta}}</span><br>
+  <span>Rho: {{option.rho}}</span><br>
+</div>
+
+
+<!-- <h3>Albums</h3>
+<div class="row">
+	<div class="col-md-8">
+	  <div>
+	    <div ng-repeat="album in vm.artist" class="song">
+	 		<itunes-album album="album" click="vm.favorite(album)" ng-if="album.trackCount"></itunes-album>
+		</div>
+	  </div>
+	</div>
+</div> -->
