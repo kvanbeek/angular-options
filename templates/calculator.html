@@ -1,17 +1,62 @@
-<form class="simple-form">
-    Stock Price: <input type="text" ng-model="option.stock" /><br />
-    Strike Price: <input type="text" ng-model="option.strike" /><br />
-    Risk free rate: <input type="text" ng-model="option.risk"/><br />
-    Volatility: <input type="text" ng-model="option.volatility"/><br />
-    Time: <input type="text" ng-model="option.time"/><br />
-    <input type="radio" ng-model="option.kind" ng-value="true" />Call
-    <input type="radio" ng-model="option.kind" ng-value="false" />Put<br />
-    <input type="submit" ng-click="option.getValues()" value="Calculate" />
-</form>
-<div>
-  <span>Price: {{option.price}}</span><br>
-  <span>Delta: {{option.delta}}</span><br>
-  <span>Gamma: {{option.gamma}}</span><br>
-  <span>Theta: {{option.theta}}</span><br>
-  <span>Rho: {{option.rho}}</span><br>
+<div class="container">
+  <div class="page-header">
+    <h1>Option Pricing Calculator</h1>
+  </div>
+
+
+<div class="form-group col-md-4">
+  <form class="simple-form">
+      <input type="text" class="form-control" placeholder="Stock Price" ng-model="option.stock" /><br />
+      <input type="text" class="form-control" placeholder="Strike Price" ng-model="option.strike" /><br />
+      <input type="text" class="form-control" placeholder="Risk Free Rate" ng-model="option.risk"/><br />
+      <input type="text" class="form-control" placeholder="Volatility (decimal)"ng-model="option.volatility"/><br />
+      <input type="text" class="form-control" placeholder="Time" ng-model="option.time"/><br />
+      <label class="radio-inline">
+        <input type="radio" ng-model="option.kind" ng-value="true"> Call
+      </label>
+      <label class="radio-inline">
+        <input type="radio" ng-model="option.kind" ng-value="false">Put
+      </label>
+      <br>
+      <br>
+      <input class="btn btn-primary" type="submit" ng-click="option.getValues()" value="Calculate" />
+  </form>
+</div>
+
+
+
+
+
+  <div class="col-md-8">
+    <table class="table table-condensed" ng-if="option.greeks">
+      <tr>
+        <td>Price</td>
+        <td>{{option.price}}</td>
+      </tr>
+      <tr>
+        <td>Delta</td>
+        <td>{{option.delta}}</td>
+      </tr>
+      <tr>
+        <td>Gamma</td>
+        <td>{{option.gamma}}</td>
+      </tr>
+      <tr>
+        <td>Theta</td>
+        <td>{{option.theta}}</td>
+      </tr>
+      <tr>
+        <td>Rho</td>
+        <td>{{option.rho}}</td>
+      </tr>
+    </table>
+    <!-- <span>Price: {{option.price}}</span><br>
+    <span>Delta: {{option.delta}}</span><br>
+    <span>Gamma: {{option.gamma}}</span><br>
+    <span>Theta: {{option.theta}}</span><br>
+    <span>Rho: {{option.rho}}</span><br> -->
+  </div>
+
+
+
 </div>

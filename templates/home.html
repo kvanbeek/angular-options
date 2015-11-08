@@ -1,1 +1,65 @@
-<h1>Welcome to OptionGraphs</h1>
+<div class="jumbotron" id="info">
+  <div class="container">
+    <!-- <h1>Hello, world!</h1>
+    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> -->
+
+    <div class="welcome">
+      <h1>Welcome to OptionGraphs</h1>
+      <br>
+      <br>
+      <h3>Enter a symbol to get options chain and analyze profit graphs</h3>
+    </div>
+    <form class="form-inline" align="center" ng-submit="home.search()">
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <input type="search" class="form-control" placeholder="Enter Symbol" autofocus="autofocus" ng-model="home.ticker">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-grad" type="button">Look Up</button>
+          </span>
+        </div>
+      </div>
+    </form>
+
+    <!-- <div class="input-group input-group-lg">
+      <input type="search" class="form-control" placeholder="Username">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div> -->
+
+  </div>
+</div>
+
+
+<div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4 home-icons">
+          <span><i class="fa fa-line-chart fa-5x"></i></span>
+
+          <h2>Charting</h2>
+          <p>Analyze the profitability of option strategies with real bid and ask prices.</p>
+          <p></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 home-icons">
+          <span><i class="fa fa-calculator fa-5x"></i></span>
+          <h2>Option Pricing</h2>
+          <p>Use our black scholes option pricing calculator to determine the theoretical price of an option. </p>
+          <p></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 home-icons">
+          <span><i class="fa fa-book fa-5x"></i></span>
+          <h2>Coming Soon!</h2>
+          <p>Learn about various option strategies and factors that influence profitability.</p>
+          <p></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+
+
+</div>

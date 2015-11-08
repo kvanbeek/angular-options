@@ -5,10 +5,12 @@ angular
 
 
     var option = this;
+    option.greeks = false;
 
 
 
     option.getValues = function () {
+      option.greeks = true;
       console.log("ran get values");
       // console.log(OptionCalculator.probability(option.stock, option.strike, option.time, option.volatility));
       // console.log(OptionCalculator.probabilityAbove(option.stock, option.strike, option.time, option.volatility));

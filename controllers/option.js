@@ -1,24 +1,37 @@
 angular
   .module('itunes-search-app')
-  .controller('OptionController', function(OptionCalculator) {
+  .controller('OptionController', function(chain, quote, dates, OptionCalculator, $routeParams) {
     // console.log(artist, $routeParams);
 
 
     var option = this;
 
-    option.chain = [];
+    // option.chain = [];
+    option.chain = chain;
+    // option.quote = quote.Ask;
+    // option.name = quote.Name;
+
+    option.info = quote;
+    option.quote = quote.Ask;
+    option.ticker = quote.Symbol;
+
+
+
     option.orders = [];
 
-    option.dates = [];
+    // option.dates = [];
+    option.dates = dates;
+    // console.log(dates);
     option.date = "";
 
     option.loading = false;
+
+
 
     option.getValues = function () {
       // console.log(OptionCalculator.probability(option.stock, option.strike, option.time, option.volatility));
       // console.log(OptionCalculator.probabilityAbove(option.stock, option.strike, option.time, option.volatility));
       optionData = OptionCalculator.black_scholes(option.kind, option.stock, option.strike, option.risk, option.volatility, option.time);
-      console.log(optionData);
       option.price = optionData.price;
       option.delta = optionData.delta;
       option.gamma = optionData.gamma;
@@ -29,6 +42,7 @@ angular
 
     option.getQuote = function(){
       OptionCalculator.getQuote(option.ticker).then(function (response){
+      option.info = response.quote;
       option.quote = response.quote.Ask;
     });
   }
@@ -40,6 +54,7 @@ angular
       option.loading = true;
 
       OptionCalculator.getDates(option.ticker).then(function (response) {
+        option.dates = [];
         console.log(response);
         for (var i = 0; i < response.option.length; i++) {
           console.log(response.option[i].value);
@@ -55,16 +70,13 @@ angular
       });
 
       var getOptions = OptionCalculator.getOptions(option.ticker, option.date).then(function (response) {
-        console.log('the response');
-        console.log(response);
-        console.log(response.td.length/10);
+
 
         var newResponse = [];
 
         for (var i = 0; i < response.td.length; i+=10) {
           var test = response.td.slice(i, i+10);
-          console.log(i);
-          console.log(test);
+
           newResponse.push(test);
         }
         option.loading = false;
@@ -75,7 +87,6 @@ angular
 
 
     option.buy = function (equity) {
-      console.log(equity);
       option.orderBook = true;
       var order = {
         side: "Buy",
@@ -88,7 +99,6 @@ angular
       option.orders.push(order);
       option.data  = [];
 
-      console.log("******************");
       // option.buildGraph(54, option.orders);
       option.buildGraph(parseFloat(option.quote), option.orders);
 
@@ -97,7 +107,6 @@ angular
 
 
     option.sell = function (equity) {
-      console.log(equity);
       option.orderBook = true;
       var order = {
         side: "Sell",
@@ -113,30 +122,27 @@ angular
     }
 
     option.remove = function (orderIndex){
-      console.log(orderIndex);
       option.orders.splice(orderIndex, 1);
 
       // var reloadOrders = option.orders;
       option.data = [];
-      option.buildGraph(parseFloat(option.quote), option.orders);
+      if (option.orders.length > 0){
+        option.buildGraph(parseFloat(option.quote), option.orders);
+      }
+
     }
 
     option.change = function () {
-      console.log("Change on table");
 
       option.loading = true;
-      console.log(option.date);
       OptionCalculator.getOptions(option.ticker, option.date).then(function (response) {
-        console.log('the response');
-        console.log(response);
-        console.log(response.td.length/10);
 
         var newResponse = [];
 
         for (var i = 0; i < response.td.length; i+=10) {
           var test = response.td.slice(i, i+10);
-          console.log(i);
-          console.log(test);
+          // console.log(i);
+          // console.log(test);
           newResponse.push(test);
         }
         option.loading = false;
@@ -146,38 +152,11 @@ angular
 
 
 
-    // OptionCalculator.getDates('MSFT').then(function (response) {
-    //   console.log(response);
-    //   for (var i = 0; i < response.option.length; i++) {
-    //     console.log(response.option[i].value);
-    //     console.log(response.option[i].content);
-    //     var newDate = {
-    //       value: response.option[i].value,
-    //       content: response.option[i].content
-    //     };
-    //
-    //     option.dates.push(newDate);
-    //
-    //   }
-    // });
+
 
 
     option.data = [];
 
-    // var listOptions = [
-    //   {
-    //     call: true,
-    //     buy: false,
-    //     strike: 57,
-    //     premium: 2
-    //   },
-    //   {
-    //     call: true,
-    //     buy: true,
-    //     strike: 50,
-    //     premium: 4
-    //   }
-    // ];
 
     function buildDataSet(stock, options) {
       // options, puts, stock
@@ -207,43 +186,35 @@ angular
       for (var i = -10; i < 20; i+= 0.1) {
         var dataSet = {
         x: stock + i,
-        val_0: buildDataSet(stock + i, options),
+        val_0: buildDataSet(stock + i, options) * 100,
         val_1: 0,
         val_2: 0,
         val_3: 0
         }
         option.data.push(dataSet);
-        console.log(dataSet);
+        // console.log(dataSet);
       }
     }
 
-    // OptionCalculator(stock + i, target)
-    // function(price, target, days, volatility)
 
-
-
-
-
-
-    // option.buildGraph(55, listOptions);
 
       option.options = {
       series: [
         {
           y: "val_0",
           label: "Profit",
-          color: "#ff7f0e"
+          color: "#ff7f0e",
+          drawDots: false
         },
         {
           y: "val_1",
           label: "Breakeven",
-          color: "#d62728"
+          color: "#d62728",
+          drawDots: false
         }
-      ]
+      ],
     };
-  // option.data.forEach(function(row) {
-  //   row.x = new Date(row.x);
-  // });
+
 
 
   });

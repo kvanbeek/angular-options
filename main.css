@@ -37,3 +37,73 @@ th, td {
  .table{
 	 margin-top: 15px;
  }
+
+ body {
+   padding-top: 40px;
+	 margin-bottom: 175px;
+ }
+
+#info{
+
+	height: 700px;
+
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2c2eaa+0,5668b5+48,50b7b7+100 */
+	background: #2c2eaa; /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  #2c2eaa 0%, #5668b5 48%, #50b7b7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#2c2eaa), color-stop(48%,#5668b5), color-stop(100%,#50b7b7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  #2c2eaa 0%,#5668b5 48%,#50b7b7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  #2c2eaa 0%,#5668b5 48%,#50b7b7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  #2c2eaa 0%,#5668b5 48%,#50b7b7 100%); /* IE10+ */
+	background: linear-gradient(135deg,  #2c2eaa 0%,#5668b5 48%,#50b7b7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c2eaa', endColorstr='#50b7b7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+}
+
+.btn-grad{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7fe4ef+0,38a0d8+100 */
+	background: #7fe4ef; /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  #7fe4ef 0%, #38a0d8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#7fe4ef), color-stop(100%,#38a0d8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  #7fe4ef 0%,#38a0d8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  #7fe4ef 0%,#38a0d8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  #7fe4ef 0%,#38a0d8 100%); /* IE10+ */
+	background: linear-gradient(135deg,  #7fe4ef 0%,#38a0d8 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7fe4ef', endColorstr='#38a0d8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+.welcome{
+	text-align: center;
+	color: #fff;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer {
+    /*background: #0070FF;*/
+		background: #FFF;
+    /*line-height: 2;*/
+    /*text-align: center;*/
+		max-height: 175px;
+		overflow: scroll;
+    color: #042E64;
+    font-family: sans-serif;
+    /*font-weight: bold;*/
+    /*text-shadow: 0 1px 0 #84BAFF;*/
+    box-shadow: 0 0 15px #00214B
+}
+
+.home-icons{
+	text-align: center;
+}
+
+.ticker-form{
+	position: absolute;
+	top: 85px;
+	left: 50px;
+}

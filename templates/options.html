@@ -1,36 +1,5 @@
 
-<div class="container">
-    <linechart data="option.data" options="option.options"></linechart>
-</div>
-
-
-<table class="table" id="orderTable" ng-if="option.orderBook">
-  <tr>
-    <th>Side</th>
-    <th>Quantity</th>
-    <th>Symbol</th>
-    <th>Exp</th>
-    <th>Strike</th>
-    <th>Type</th>
-    <th>Premium</th>
-    <th></th>
-  </tr>
-  <tr ng-repeat="order in option.orders">
-    <td>{{order.side}}</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>{{order.strike}}</td>
-    <td>{{order.type}}</td>
-    <td>{{order.premium}}</td>
-    <td><a ng-click="option.remove($index)">Remove</a></td>
-  </tr>
-</table>
-
-
-
-
-<form class="form-inline" ng-submit="option.getChain(); option.getQuote()">
+<form class="form-inline ticker-form" ng-submit="option.getChain(); option.getQuote()">
   <div class="form-group">
     <div class="input-group">
       <input type="search" class="form-control" placeholder="Stock Ticker" ng-model="option.ticker">
@@ -38,52 +7,105 @@
   </div>
   <input type="submit" class="btn btn-primary">
 
-  <label for="sel1" >Expiration</label>
+  <!-- <label for="sel1" >Expiration</label>
   <select class="form-control" id="sel1" ng-model="option.date" ng-change="option.change()">
     <option ng-repeat="date in option.dates" value="{{date.value}}">{{date.content}}</option>
-  </select>
-
+  </select> -->
 </form>
 
-<!-- <div class="form-group">
-  <label for="sel1">Expiration</label>
-  <select class="form-control" id="sel1" ng-model="option.date" ng-change="option.change()">
-    <option ng-repeat="date in option.dates" value="{{date.value}}">{{date.content}}</option>
-  </select>
-</div> -->
+<div class="container">
+  <div class="page-header">
+    <h1 style="width: 500px;">{{option.info.Name}}</h1>
+    </div>
+  </div>
 
 
-<div>{{option.quote}}</div>
+  <!-- <div>{{option.quote}}</div> -->
+ <!-- <table>
+   <tr>
+     <th scope="row">Price</th>
+     <td>{{option.info.Ask}}</td>
+   </tr>
 
-<img src="loading.gif" class="center-block" ng-if="option.loading">
-<table class="table table-hover" ng-if="!option.loading">
-  <tr>
-    <th>Strike</th>
-    <th>Name</th>
-    <th>Last</th>
-    <th>Bid</th>
-    <th>Ask</th>
-    <th>Change</th>
-    <th>Percent Change</th>
-    <th>Volume</th>
-    <th>Open Interest</th>
-    <th>Implied Volatility</th>
-  </tr>
-  <tr ng-repeat="equity in option.chain" ng-class="{success: equity[0].strong.a.content < option.quote}">
-    <td>{{equity[0].strong.a.content}}</td>
-    <td>{{equity[1].div.a.content}}</td>
-    <td>{{equity[2].div.content}}</td>
-    <td><a ng-click="option.buy(equity)">{{equity[3].div.content}}</a></td>
-    <td><a ng-click="option.sell(equity)">{{equity[4].div.content}}</a></td>
-    <td>{{equity[5].div.content}}</td>
-    <td>{{equity[6].div.content}}</td>
-    <td>{{equity[7].strong.content}}</td>
-    <td>{{equity[8].div.content}}</td>
-    <td>{{equity[9].div.content}}</td>
-  </tr>
-</table>
+ </table> -->
+
+</div>
 
 
+<div class="container">
+    <linechart data="option.data" options="option.options"></linechart>
+</div>
+
+
+<div class="container">
+
+  <form class="form-inline">
+    <label for="sel1" >Expiration</label>
+    <select class="form-control" id="sel1" ng-model="option.date" ng-change="option.change()">
+      <option ng-repeat="date in option.dates" value="{{date.value}}">{{date.content}}</option>
+    </select>
+  </form>
+
+  <img src="loading.gif" class="center-block" ng-if="option.loading">
+  <table class="table table-hover" ng-if="!option.loading">
+    <tr>
+      <th>Strike</th>
+      <th>Name</th>
+      <th>Last</th>
+      <th>Bid</th>
+      <th>Ask</th>
+      <th>Change</th>
+      <th>Percent Change</th>
+      <th>Volume</th>
+      <th>Open Interest</th>
+      <th>Implied Volatility</th>
+    </tr>
+    <tr ng-repeat="equity in option.chain" ng-class="{success: equity[0].strong.a.content < option.quote}">
+      <td>{{equity[0].strong.a.content}}</td>
+      <td>{{equity[1].div.a.content}}</td>
+      <td>{{equity[2].div.content}}</td>
+      <td><a ng-click="option.buy(equity)">{{equity[3].div.content}}</a></td>
+      <td><a ng-click="option.sell(equity)">{{equity[4].div.content}}</a></td>
+      <td>{{equity[5].div.content}}</td>
+      <td>{{equity[6].div.content}}</td>
+      <td>{{equity[7].strong.content}}</td>
+      <td>{{equity[8].div.content}}</td>
+      <td>{{equity[9].div.content}}</td>
+    </tr>
+  </table>
+
+
+</div>
+
+
+
+<div id="footer" ng-if="option.orders.length > 0">
+
+  <div class="container">
+    <table class="table" id="orderTable">
+      <tr>
+        <th>Side</th>
+        <th>Quantity</th>
+        <th>Symbol</th>
+        <th>Exp</th>
+        <th>Strike</th>
+        <th>Type</th>
+        <th>Premium</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="order in option.orders">
+        <td>{{order.side}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{order.strike}}</td>
+        <td>{{order.type}}</td>
+        <td>{{order.premium}}</td>
+        <td><a ng-click="option.remove($index)">Remove</a></td>
+      </tr>
+    </table>
+  </div>
+</div>
 <!-- <form class="simple-form">
     Stock Price: <input type="text" ng-model="option.stock" /><br />
     Strike Price: <input type="text" ng-model="option.strike" /><br />
