@@ -43,6 +43,28 @@
 							$location.path('/');
 						});
 					},
+
+					puts: function(OptionCalculator, $route, $location) {
+
+						return OptionCalculator.getPutOptions($route.current.params.ticker, "").then(function (response) {
+							console.log('Get Put Options on Resolve called');
+
+
+							var puts = [];
+
+							for (var i = 0; i < response.td.length; i+=10) {
+								var test = response.td.slice(i, i+10);
+								// console.log(i);
+								// console.log(test);
+								puts.push(test);
+							}
+							return puts;
+						}, function() {
+							$location.path('/');
+						});
+					},
+
+
 					quote: function (OptionCalculator, $route, $location){
 						return OptionCalculator.getQuote($route.current.params.ticker).then(function (response){
 							console.log(response.quote);
@@ -54,8 +76,8 @@
 			        console.log(response);
 							var dateHolder = [];
 			        for (var i = 0; i < response.option.length; i++) {
-			          console.log(response.option[i].value);
-			          console.log(response.option[i].content);
+			          // console.log(response.option[i].value);
+			          // console.log(response.option[i].content);
 			          var newDate = {
 			            value: response.option[i].value,
 			            content: response.option[i].content

@@ -1,5 +1,5 @@
 
-<form class="form-inline ticker-form" ng-submit="option.getChain(); option.getQuote()">
+<!-- <form class="form-inline ticker-form" ng-submit="option.getChain(); option.getQuote()">
   <div class="form-group">
     <div class="input-group">
       <input type="search" class="form-control" placeholder="Stock Ticker" ng-model="option.ticker">
@@ -7,17 +7,27 @@
   </div>
   <input type="submit" class="btn btn-primary">
 
-  <!-- <label for="sel1" >Expiration</label>
-  <select class="form-control" id="sel1" ng-model="option.date" ng-change="option.change()">
-    <option ng-repeat="date in option.dates" value="{{date.value}}">{{date.content}}</option>
-  </select> -->
-</form>
+
+</form> -->
 
 <div class="container">
-  <div class="page-header">
-    <h1 style="width: 500px;">{{option.info.Name}}</h1>
-    </div>
+  <div>
+    <h1>{{option.info.Name}}
+      <div class="pull-right">
+        <form class="form-inline ticker-form" ng-submit="option.getChain(); option.getQuote()">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="search" class="form-control" placeholder="Stock Ticker" ng-model="option.ticker">
+            </div>
+          </div>
+          <input type="submit" class="btn btn-primary">
+        </form>
+      </div>
+    </h1>
+
   </div>
+
+</div>
 
 
   <!-- <div>{{option.quote}}</div> -->
@@ -31,49 +41,122 @@
 
 </div>
 
+<div class="container">
+  <table class="table">
+    <tr>
+      <th scope="row">Price: </th>
+      <td>{{option.info.Ask}}</td>
+    </tr>
+    <tr>
+      <th scope="row">PE: </th>
+      <td>{{option.info.PERatio}}</td>
+    </tr>
+
+  </table>
+</div>
+
 
 <div class="container">
     <linechart data="option.data" options="option.options"></linechart>
 </div>
 
 
+
+
 <div class="container">
 
-  <form class="form-inline">
+
+
+  <!-- <form class="form-inline">
     <label for="sel1" >Expiration</label>
-    <select class="form-control" id="sel1" ng-model="option.date" ng-change="option.change()">
+    <select class="form-control" id="sel1" ng-init="option.date = option.dates[0]" ng-model="option.date" ng-change="option.change()">
       <option ng-repeat="date in option.dates" value="{{date.value}}">{{date.content}}</option>
     </select>
+  </form> -->
+
+  <form class="form-inline">
+    <label for="sel1">Expiration</label>
+    <select
+      class="form-control"
+      ng-model="option.date"
+      ng-options="date.content for date in option.dates track by date.value"
+      ng-change="option.change()">
+    </select>
+    <!-- {{ selectedOption.value }} -->
   </form>
 
-  <img src="loading.gif" class="center-block" ng-if="option.loading">
-  <table class="table table-hover" ng-if="!option.loading">
-    <tr>
-      <th>Strike</th>
-      <th>Name</th>
-      <th>Last</th>
-      <th>Bid</th>
-      <th>Ask</th>
-      <th>Change</th>
-      <th>Percent Change</th>
-      <th>Volume</th>
-      <th>Open Interest</th>
-      <th>Implied Volatility</th>
-    </tr>
-    <tr ng-repeat="equity in option.chain" ng-class="{success: equity[0].strong.a.content < option.quote}">
-      <td>{{equity[0].strong.a.content}}</td>
-      <td>{{equity[1].div.a.content}}</td>
-      <td>{{equity[2].div.content}}</td>
-      <td><a ng-click="option.buy(equity)">{{equity[3].div.content}}</a></td>
-      <td><a ng-click="option.sell(equity)">{{equity[4].div.content}}</a></td>
-      <td>{{equity[5].div.content}}</td>
-      <td>{{equity[6].div.content}}</td>
-      <td>{{equity[7].strong.content}}</td>
-      <td>{{equity[8].div.content}}</td>
-      <td>{{equity[9].div.content}}</td>
-    </tr>
-  </table>
+  <!-- navbar  -->
+  <ul class="nav nav-tabs">
+    <li role="presentation" ng-class="{ active: option.showCalls }" >
+      <a href="#" ng-click="option.hidePuts()">Calls</a>
+    </li>
+    <li role="presentation" ng-class="{ active: !option.showCalls }">
+      <a href="#" ng-click="option.showPuts()">Puts</a>
+    </li>
+  </ul>
 
+
+
+  <img src="loading.gif" class="center-block" ng-if="option.loading">
+  <!-- calls table -->
+  <div ng-show="option.showCalls">
+    <table class="table table-hover" ng-if="!option.loading">
+      <tr>
+        <th>Strike</th>
+        <th>Name</th>
+        <th>Last</th>
+        <th>Bid</th>
+        <th>Ask</th>
+        <th>Change</th>
+        <th>Percent Change</th>
+        <th>Volume</th>
+        <th>Open Interest</th>
+        <th>Implied Volatility</th>
+      </tr>
+      <tr ng-repeat="equity in option.chain" ng-class="{success: equity[0].strong.a.content < option.quote}">
+        <td>{{equity[0].strong.a.content}}</td>
+        <td>{{equity[1].div.a.content}}</td>
+        <td>{{equity[2].div.content}}</td>
+        <td><a ng-click="option.buy(equity)">{{equity[3].div.content}}</a></td>
+        <td><a ng-click="option.sell(equity)">{{equity[4].div.content}}</a></td>
+        <td>{{equity[5].div.content}}</td>
+        <td>{{equity[6].div.content}}</td>
+        <td>{{equity[7].strong.content}}</td>
+        <td>{{equity[8].div.content}}</td>
+        <td>{{equity[9].div.content}}</td>
+      </tr>
+    </table>
+  </div>
+
+<!-- puts table  -->
+  <div ng-hide="option.showCalls">
+    <table class="table table-hover" ng-if="!option.loading">
+      <tr>
+        <th>Strike</th>
+        <th>Name</th>
+        <th>Last</th>
+        <th>Bid</th>
+        <th>Ask</th>
+        <th>Change</th>
+        <th>Percent Change</th>
+        <th>Volume</th>
+        <th>Open Interest</th>
+        <th>Implied Volatility</th>
+      </tr>
+      <tr ng-repeat="equity in option.puts" ng-class="{success: equity[0].strong.a.content > option.quote}">
+        <td>{{equity[0].strong.a.content}}</td>
+        <td>{{equity[1].div.a.content}}</td>
+        <td>{{equity[2].div.content}}</td>
+        <td><a ng-click="option.buyPut(equity)">{{equity[3].div.content}}</a></td>
+        <td><a ng-click="option.sellPut(equity)">{{equity[4].div.content}}</a></td>
+        <td>{{equity[5].div.content}}</td>
+        <td>{{equity[6].div.content}}</td>
+        <td>{{equity[7].strong.content}}</td>
+        <td>{{equity[8].div.content}}</td>
+        <td>{{equity[9].div.content}}</td>
+      </tr>
+    </table>
+  </div>
 
 </div>
 
@@ -85,8 +168,8 @@
     <table class="table" id="orderTable">
       <tr>
         <th>Side</th>
-        <th>Quantity</th>
-        <th>Symbol</th>
+        <!-- <th>Quantity</th> -->
+        <!-- <th>Symbol</th> -->
         <th>Exp</th>
         <th>Strike</th>
         <th>Type</th>
@@ -95,9 +178,9 @@
       </tr>
       <tr ng-repeat="order in option.orders">
         <td>{{order.side}}</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <!-- <td></td> -->
+        <!-- <td></td> -->
+        <td>{{order.expiration}}</td>
         <td>{{order.strike}}</td>
         <td>{{order.type}}</td>
         <td>{{order.premium}}</td>

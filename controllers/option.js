@@ -1,13 +1,15 @@
 angular
   .module('itunes-search-app')
-  .controller('OptionController', function(chain, quote, dates, OptionCalculator, $routeParams) {
+  .controller('OptionController', function(chain, puts, quote, dates, OptionCalculator, $routeParams) {
     // console.log(artist, $routeParams);
 
 
     var option = this;
 
+    option.showCalls = true;
     // option.chain = [];
     option.chain = chain;
+    option.puts = puts;
     // option.quote = quote.Ask;
     // option.name = quote.Name;
 
@@ -15,6 +17,8 @@ angular
     option.quote = quote.Ask;
     option.ticker = quote.Symbol;
 
+    option.showPuts = false;
+    option.showCalls = true;
 
 
     option.orders = [];
@@ -22,11 +26,19 @@ angular
     // option.dates = [];
     option.dates = dates;
     // console.log(dates);
-    option.date = "";
+    option.date = option.dates[0];
 
     option.loading = false;
 
+    option.showPuts = function () {
+      option.showCalls = false;
+      console.log(option.showCalls);
+    }
 
+    option.hidePuts = function () {
+      option.showCalls = true;
+      console.log(option.showCalls);
+    }
 
     option.getValues = function () {
       // console.log(OptionCalculator.probability(option.stock, option.strike, option.time, option.volatility));
@@ -38,6 +50,7 @@ angular
       option.theta = optionData.theta;
       option.rho = optionData.rho;
     }
+
 
 
     option.getQuote = function(){
@@ -69,7 +82,7 @@ angular
         }
       });
 
-      var getOptions = OptionCalculator.getOptions(option.ticker, option.date).then(function (response) {
+      var getOptions = OptionCalculator.getOptions(option.ticker, option.date.value).then(function (response) {
 
 
         var newResponse = [];
@@ -94,12 +107,32 @@ angular
         buy: true,
         strike: parseFloat(equity[0].strong.a.content),
         premium: parseFloat(equity[3].div.content),
-        type: "Call"
+        type: "Call",
+        expiration: option.date.content
       };
       option.orders.push(order);
       option.data  = [];
 
       // option.buildGraph(54, option.orders);
+      option.buildGraph(parseFloat(option.quote), option.orders);
+
+    }
+
+    option.buyPut = function (equity) {
+      option.orderBook = true;
+      var order = {
+        side: "Buy",
+        call: false,
+        buy: true,
+        strike: parseFloat(equity[0].strong.a.content),
+        premium: parseFloat(equity[3].div.content),
+        type: "Put",
+        expiration: option.date.content
+      };
+
+      option.orders.push(order);
+      option.data  = [];
+
       option.buildGraph(parseFloat(option.quote), option.orders);
 
     }
@@ -114,7 +147,24 @@ angular
         buy: false,
         strike: parseFloat(equity[0].strong.a.content),
         premium: parseFloat(equity[4].div.content),
-        type: "Call"
+        type: "Call",
+        expiration: option.date.content
+      };
+      option.orders.push(order);
+      option.data  = [];
+      option.buildGraph(parseFloat(option.quote), option.orders);
+    }
+
+    option.sellPut = function (equity) {
+      option.orderBook = true;
+      var order = {
+        side: "Sell",
+        call: false,
+        buy: false,
+        strike: parseFloat(equity[0].strong.a.content),
+        premium: parseFloat(equity[4].div.content),
+        type: "Put",
+        expiration: option.date.content
       };
       option.orders.push(order);
       option.data  = [];
@@ -133,9 +183,9 @@ angular
     }
 
     option.change = function () {
-
+      console.log(option.date.value);
       option.loading = true;
-      OptionCalculator.getOptions(option.ticker, option.date).then(function (response) {
+      OptionCalculator.getOptions(option.ticker, option.date.value).then(function (response) {
 
         var newResponse = [];
 
@@ -148,10 +198,22 @@ angular
         option.loading = false;
         option.chain = newResponse;
       });
+
+      OptionCalculator.getPutOptions(option.ticker, option.date.value).then(function (response) {
+
+        var newResponse = [];
+
+        for (var i = 0; i < response.td.length; i+=10) {
+          var test = response.td.slice(i, i+10);
+          // console.log(i);
+          // console.log(test);
+          newResponse.push(test);
+        }
+        option.loading = false;
+        option.puts = newResponse;
+      });
+
     }
-
-
-
 
 
 
@@ -167,26 +229,77 @@ angular
         // console.log(options[i].strike, options[i].premium, stock);
         if (options[i].buy && options[i].call){
           profit = profit + OptionCalculator.callOptionProfitLoss(stock, options[i].strike, options[i].premium);
-          console.log('the call ran', option.quote, options[i].strike, options[i].premium);
+          // console.log('the call ran', option.quote, options[i].strike, options[i].premium);
           // console.log(profit);
         } else if (!options[i].buy && options[i].call){
           profit = profit + OptionCalculator.writtenCallOptionProfitLoss(stock, options[i].strike, options[i].premium);
-          console.log('the non call ran');
+          // console.log('the non call ran');
+        } else if (options[i].buy && !options[i].call){
+          profit = profit + OptionCalculator.putOptionProfitLoss(stock, options[i].strike, options[i].premium);
+
+        } else if (!options[i].buy && !options[i].call){
+          profit = profit + OptionCalculator.writtenPutOptionProfitLoss(stock, options[i].strike, options[i].premium);
         }
       }
-      console.log("Profit: " + profit);
+      // console.log("Profit: " + profit);
       return profit;
 
     }
+
+    // function buildBlackScholesDataSet(stock, options) {
+    //   // options, puts, stock
+    //
+    //   var profit = 0;
+    //
+    //
+    //   for (var i = 0; i < options.length; i++) {
+    //     var blackScholesPrice = OptionCalculator.black_scholes(true, stock, options[i].strike, 0, .65, 1/365)
+    //
+    //     // console.log(options[i].strike, options[i].premium, stock);
+    //     if (options[i].buy && options[i].call){
+    //       profit = profit + blackScholesPrice - options[i].premium;
+    //       // console.log('the call ran', option.quote, options[i].strike, options[i].premium);
+    //       // console.log(profit);
+    //     } else if (!options[i].buy && options[i].call){
+    //       profit = profit - blackScholesPrice + options[i].premium;
+    //       // console.log('the non call ran');
+    //     }
+    //   }
+    //   // console.log("Profit: " + profit);
+    //   return profit;
+    //
+    // }
 
 
 
     option.buildGraph = function (stock, options) {
       console.log(options);
-      for (var i = -10; i < 20; i+= 0.1) {
+
+
+      for (var i = -10; i < 20; i+= 0.01000) {
+
+        var newStock = Math.round((stock+i)*100)/100;
+        // console.log(newStock);
+
+
+
+
+        // console.log(OptionCalculator.black_scholes(true, newStock, options[0].strike, 0, .65, 1/365));
+
+
+        // var dataSet = {
+        // x: stock + i,
+        // val_0: buildDataSet(stock + i, options) * 100,
+        // val_1: 0,
+        // val_2: 0,
+        // val_3: 0
+        // }
+
+        // buildBlackScholesDataSet(newStock, options) * 100
+
         var dataSet = {
-        x: stock + i,
-        val_0: buildDataSet(stock + i, options) * 100,
+        x: newStock,
+        val_0: buildDataSet(newStock, options) * 100,
         val_1: 0,
         val_2: 0,
         val_3: 0
@@ -195,6 +308,25 @@ angular
         // console.log(dataSet);
       }
     }
+
+
+    // option.getITM = function () {
+    //   var itmCall = {};
+    //   var otmCall = {};
+    //
+    //   for (var i = 0; i < option.chain.length; i++) {
+    //     if (!option.chain[0].strong.a.content < option.quote) {
+    //       itmCall.strike = option[i].chain[0].strong.a.content;
+    //       itmCall.price = option[i].chain[4].strong.a.strike;
+    //       otmCall.strike = option[i + 1].chain[0].strong.a.content;
+    //       otmCall.price = option[i + 1].chain[4].strong.a.strike;
+    //       break;
+    //     }
+    //   }
+    //
+    //   return itmCall, otmCall;
+    //
+    // }
 
 
 
@@ -211,9 +343,17 @@ angular
           label: "Breakeven",
           color: "#d62728",
           drawDots: false
-        }
+        },
+        // {
+        //   y: "val_2",
+        //   label: "Black Scholes 18 Days",
+        //   color: "#3366FF",
+        //   drawDots: false
+        // }
       ],
     };
+
+
 
 
 

@@ -75,7 +75,7 @@ angular
 
           d1 = (Math.log(S/X) + r*t)/(v*sqt) + 0.5*(v*sqt);
           d2 = d1 - (v*sqt);
-          console.log(call);
+          // console.log(call);
           if (call) {
             delta = this.N(d1);
             Nd2 = this.N(d2);
@@ -113,13 +113,26 @@ angular
 
 
           // return ( S*delta-X*ert *Nd2);
-          return optionsData;
+          return optionsPrice;
 
       },
 
       getOptions: function(ticker, date) {
 
         var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Ffinance.yahoo.com%2Fq%2Fop%3Fs%3D" + ticker + "%26date%3D" + date + "'%20and%20xpath%3D'%2F%2F*%5B%40id%3D%22optionsCallsTable%22%5D%2Fdiv%5B2%5D%2Fdiv%2Ftable%2Ftbody%2Ftr%2Ftd'&format=json&diagnostics=true&callback="
+  			// var url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%27http%3A%2F%2Ffinance.yahoo.com%2Fq%2Fop%3Fs%3D' + ticker + '%2BOptions%27%20and%20xpath%3D%27%2F%2F*%5B%40id%3D%22optionsCallsTable%22%5D%2Fdiv%5B2%5D%2Fdiv%2Ftable%2Ftbody%2Ftr%2Ftd%27&format=json&diagnostics=true&callback=';
+  			var promise = $http.get(url);
+        console.log('running get options');
+  			// return promise;
+  			return promise.then(function(response) {
+          // console.log(response);
+  				return response.data.query.results;
+  			});
+  		},
+
+      getPutOptions: function(ticker, date) {
+
+        var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D'http%3A%2F%2Ffinance.yahoo.com%2Fq%2Fop%3Fs%3D" + ticker + "%26date%3D" + date + "'%20and%20xpath%3D'%2F%2F*%5B%40id%3D%22optionsPutsTable%22%5D%2Fdiv%5B2%5D%2Fdiv%2Ftable%2Ftbody%2Ftr%2Ftd'&format=json&diagnostics=true&callback="
   			// var url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%27http%3A%2F%2Ffinance.yahoo.com%2Fq%2Fop%3Fs%3D' + ticker + '%2BOptions%27%20and%20xpath%3D%27%2F%2F*%5B%40id%3D%22optionsCallsTable%22%5D%2Fdiv%5B2%5D%2Fdiv%2Ftable%2Ftbody%2Ftr%2Ftd%27&format=json&diagnostics=true&callback=';
   			var promise = $http.get(url);
         console.log('running get options');
@@ -194,6 +207,14 @@ angular
           // return Math.min(premium - (strike - stock), premium);
           return Math.min(premium + (strike - stock), premium);
         }
+
+      },
+
+      expectedMove: function (atmCall, atmPut, otmCall, otmPut) {
+        return (atmCall + atmPut + otmCall + otmPut) / 2;
+      },
+
+      probabilityOfSuccess: function () {
 
       },
 
