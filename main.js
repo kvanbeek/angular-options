@@ -1,8 +1,14 @@
 (function() {
 
-	var app = angular.module('option-graphs', ['ngRoute', 'n3-line-chart']);
+	var app = angular.module('option-graphs', ['ngRoute', 'n3-line-chart', 'auth0', 'angular-storage', 'angular-jwt']);
 
-	app.config(function($routeProvider, $locationProvider) {
+	app.config(function($routeProvider, $locationProvider, authProvider) {
+
+		authProvider.init({
+	    domain: 'optiongraphs.auth0.com',
+	    clientID: 'ibmGsq27RVz17Ggxxhww1akzGBpvL470'
+  	});
+
 		$routeProvider
 		.when('/', {
 			templateUrl: 'templates/home.html',
@@ -98,6 +104,10 @@
 			});
 
 			$locationProvider.html5Mode(true);
+	});
+
+	app.run(function (auth) {
+		auth.hookEvents();
 	});
 
 })();

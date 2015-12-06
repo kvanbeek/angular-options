@@ -281,9 +281,6 @@ angular
         var newStock = Math.round((stock+i)*100)/100;
         // console.log(newStock);
 
-
-
-
         // console.log(OptionCalculator.black_scholes(true, newStock, options[0].strike, 0, .65, 1/365));
 
 
@@ -310,23 +307,18 @@ angular
     }
 
 
-    // option.getITM = function () {
-    //   var itmCall = {};
-    //   var otmCall = {};
-    //
-    //   for (var i = 0; i < option.chain.length; i++) {
-    //     if (!option.chain[0].strong.a.content < option.quote) {
-    //       itmCall.strike = option[i].chain[0].strong.a.content;
-    //       itmCall.price = option[i].chain[4].strong.a.strike;
-    //       otmCall.strike = option[i + 1].chain[0].strong.a.content;
-    //       otmCall.price = option[i + 1].chain[4].strong.a.strike;
-    //       break;
-    //     }
-    //   }
-    //
-    //   return itmCall, otmCall;
-    //
-    // }
+    option.screenshot = function () {
+      element = document.getElementById("option-chart");
+      html2canvas(element, {
+        onrendered: function(canvas) {
+          document.body.appendChild(canvas);
+          console.log(canvas.toDataURL());
+        }
+      });
+      console.log("option screen shot pressed");
+    }
+
+
 
 
 
