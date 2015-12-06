@@ -1,7 +1,10 @@
 angular
   .module('option-graphs')
-  .controller('OptionController', function(chain, puts, quote, dates, OptionCalculator, $routeParams) {
+  .controller('OptionController', function(chain, puts, quote, dates, OptionCalculator, $routeParams, news) {
+
+
     // console.log(artist, $routeParams);
+    // option.news = stocknews;
 
 
     var option = this;
@@ -16,6 +19,11 @@ angular
     option.info = quote;
     option.quote = quote.Ask;
     option.ticker = quote.Symbol;
+
+    news.getNews(option.info.Name).then(function (response) {
+      option.news = response;
+      console.log(response);
+    });
 
     option.showPuts = false;
     option.showCalls = true;

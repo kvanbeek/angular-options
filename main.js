@@ -26,7 +26,7 @@
 				controller: 'OptionController',
 				controllerAs: 'option',
 				resolve: {
-					chain: function(OptionCalculator, $route, $location) {
+					chain: function(OptionCalculator, $route, $location, news) {
 
 						return OptionCalculator.getOptions($route.current.params.ticker, "").then(function (response) {
 							console.log('Get Options on Resolve called');
@@ -66,6 +66,14 @@
 						});
 					},
 
+					// stocknews: function(stock){
+					// 	news.getNews("IBM").then(function (response) {
+				  //     return response;
+				  //   }, function () {
+				  //   	$location.path('/');
+				  //   });
+					// },
+
 
 					quote: function (OptionCalculator, $route, $location){
 						return OptionCalculator.getQuote($route.current.params.ticker).then(function (response){
@@ -102,6 +110,6 @@
 			$locationProvider.html5Mode(true);
 	});
 
-	
+
 
 })();
