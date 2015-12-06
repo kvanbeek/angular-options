@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .factory('OptionCalculator', function($http) {
     return {
 
@@ -65,6 +65,7 @@ angular
         // S = stock prics, X = strike price, r = no-risk interest rate
         // v = volitility (1 std dev of S for (1 yr? 1 month?, you pick)
         // t = time to maturity
+        t = t/365;
 
         // define some temp vars, to minimize function calls
           var sqt = Math.sqrt(t);
@@ -113,7 +114,7 @@ angular
 
 
           // return ( S*delta-X*ert *Nd2);
-          return optionsPrice;
+          return optionsData;
 
       },
 

@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .factory('Artist', function($http) {
     return {
       findAll: function() {
@@ -19,7 +19,7 @@ angular
           return response.data.results;
         });
 
-      
+
       },
 
 

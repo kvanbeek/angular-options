@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .directive('itunesAlbum', function() {
   	return {
   		restrict: 'E',
@@ -10,10 +10,7 @@ angular
       },
       link: function(scope) {
 
-        
+
       }
   	};
   });
-
-
-

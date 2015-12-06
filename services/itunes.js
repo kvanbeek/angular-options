@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .factory('iTunes', function($http) {
   	var cache = {};
 

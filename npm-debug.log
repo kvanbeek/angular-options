@@ -1,0 +1,649 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 warn package.json @ No repository field.
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ '/Users/kevinvanbeek/Desktop/angular-options-git',
+6 verbose install   [ 'jasmine-core',
+6 verbose install     'karma',
+6 verbose install     'karma-jasmine',
+6 verbose install     'karma-phantomjs-launcher',
+6 verbose install     'phantomjs' ] ]
+7 info preinstall @
+8 verbose readDependencies using package.json deps
+9 verbose cache add [ 'jasmine-core@^2.3.4', null ]
+10 verbose cache add name=undefined spec="jasmine-core@^2.3.4" args=["jasmine-core@^2.3.4",null]
+11 verbose parsed url { protocol: null,
+11 verbose parsed url   slashes: null,
+11 verbose parsed url   auth: null,
+11 verbose parsed url   host: null,
+11 verbose parsed url   port: null,
+11 verbose parsed url   hostname: null,
+11 verbose parsed url   hash: null,
+11 verbose parsed url   search: null,
+11 verbose parsed url   query: null,
+11 verbose parsed url   pathname: 'jasmine-core@^2.3.4',
+11 verbose parsed url   path: 'jasmine-core@^2.3.4',
+11 verbose parsed url   href: 'jasmine-core@^2.3.4' }
+12 verbose cache add [ 'karma@^0.13.15', null ]
+13 verbose cache add name=undefined spec="karma@^0.13.15" args=["karma@^0.13.15",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'karma@^0.13.15',
+14 verbose parsed url   path: 'karma@^0.13.15',
+14 verbose parsed url   href: 'karma@^0.13.15' }
+15 verbose cache add [ 'karma-jasmine@^0.3.6', null ]
+16 verbose cache add name=undefined spec="karma-jasmine@^0.3.6" args=["karma-jasmine@^0.3.6",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'karma-jasmine@^0.3.6',
+17 verbose parsed url   path: 'karma-jasmine@^0.3.6',
+17 verbose parsed url   href: 'karma-jasmine@^0.3.6' }
+18 verbose cache add [ 'karma-phantomjs-launcher@^0.2.1', null ]
+19 verbose cache add name=undefined spec="karma-phantomjs-launcher@^0.2.1" args=["karma-phantomjs-launcher@^0.2.1",null]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: 'karma-phantomjs-launcher@^0.2.1',
+20 verbose parsed url   path: 'karma-phantomjs-launcher@^0.2.1',
+20 verbose parsed url   href: 'karma-phantomjs-launcher@^0.2.1' }
+21 verbose cache add name="jasmine-core" spec="^2.3.4" args=["jasmine-core","^2.3.4"]
+22 verbose parsed url { protocol: null,
+22 verbose parsed url   slashes: null,
+22 verbose parsed url   auth: null,
+22 verbose parsed url   host: null,
+22 verbose parsed url   port: null,
+22 verbose parsed url   hostname: null,
+22 verbose parsed url   hash: null,
+22 verbose parsed url   search: null,
+22 verbose parsed url   query: null,
+22 verbose parsed url   pathname: '^2.3.4',
+22 verbose parsed url   path: '^2.3.4',
+22 verbose parsed url   href: '^2.3.4' }
+23 verbose addNamed [ 'jasmine-core', '^2.3.4' ]
+24 verbose addNamed [ null, '>=2.3.4-0 <3.0.0-0' ]
+25 verbose cache add name="karma" spec="^0.13.15" args=["karma","^0.13.15"]
+26 verbose parsed url { protocol: null,
+26 verbose parsed url   slashes: null,
+26 verbose parsed url   auth: null,
+26 verbose parsed url   host: null,
+26 verbose parsed url   port: null,
+26 verbose parsed url   hostname: null,
+26 verbose parsed url   hash: null,
+26 verbose parsed url   search: null,
+26 verbose parsed url   query: null,
+26 verbose parsed url   pathname: '^0.13.15',
+26 verbose parsed url   path: '^0.13.15',
+26 verbose parsed url   href: '^0.13.15' }
+27 verbose addNamed [ 'karma', '^0.13.15' ]
+28 verbose addNamed [ null, '>=0.13.15-0 <0.14.0-0' ]
+29 verbose cache add name="karma-jasmine" spec="^0.3.6" args=["karma-jasmine","^0.3.6"]
+30 verbose parsed url { protocol: null,
+30 verbose parsed url   slashes: null,
+30 verbose parsed url   auth: null,
+30 verbose parsed url   host: null,
+30 verbose parsed url   port: null,
+30 verbose parsed url   hostname: null,
+30 verbose parsed url   hash: null,
+30 verbose parsed url   search: null,
+30 verbose parsed url   query: null,
+30 verbose parsed url   pathname: '^0.3.6',
+30 verbose parsed url   path: '^0.3.6',
+30 verbose parsed url   href: '^0.3.6' }
+31 verbose addNamed [ 'karma-jasmine', '^0.3.6' ]
+32 verbose addNamed [ null, '>=0.3.6-0 <0.4.0-0' ]
+33 verbose cache add name="karma-phantomjs-launcher" spec="^0.2.1" args=["karma-phantomjs-launcher","^0.2.1"]
+34 verbose parsed url { protocol: null,
+34 verbose parsed url   slashes: null,
+34 verbose parsed url   auth: null,
+34 verbose parsed url   host: null,
+34 verbose parsed url   port: null,
+34 verbose parsed url   hostname: null,
+34 verbose parsed url   hash: null,
+34 verbose parsed url   search: null,
+34 verbose parsed url   query: null,
+34 verbose parsed url   pathname: '^0.2.1',
+34 verbose parsed url   path: '^0.2.1',
+34 verbose parsed url   href: '^0.2.1' }
+35 verbose addNamed [ 'karma-phantomjs-launcher', '^0.2.1' ]
+36 verbose addNamed [ null, '>=0.2.1-0 <0.3.0-0' ]
+37 verbose cache add [ 'phantomjs@^1.9.18', null ]
+38 verbose cache add name=undefined spec="phantomjs@^1.9.18" args=["phantomjs@^1.9.18",null]
+39 verbose parsed url { protocol: null,
+39 verbose parsed url   slashes: null,
+39 verbose parsed url   auth: null,
+39 verbose parsed url   host: null,
+39 verbose parsed url   port: null,
+39 verbose parsed url   hostname: null,
+39 verbose parsed url   hash: null,
+39 verbose parsed url   search: null,
+39 verbose parsed url   query: null,
+39 verbose parsed url   pathname: 'phantomjs@^1.9.18',
+39 verbose parsed url   path: 'phantomjs@^1.9.18',
+39 verbose parsed url   href: 'phantomjs@^1.9.18' }
+40 silly lockFile a159a41e-jasmine-core-2-3-4 jasmine-core@^2.3.4
+41 verbose lock jasmine-core@^2.3.4 /Users/kevinvanbeek/.npm/a159a41e-jasmine-core-2-3-4.lock
+42 silly lockFile f21878e0-karma-0-13-15 karma@^0.13.15
+43 verbose lock karma@^0.13.15 /Users/kevinvanbeek/.npm/f21878e0-karma-0-13-15.lock
+44 silly lockFile b71cba10-karma-jasmine-0-3-6 karma-jasmine@^0.3.6
+45 verbose lock karma-jasmine@^0.3.6 /Users/kevinvanbeek/.npm/b71cba10-karma-jasmine-0-3-6.lock
+46 silly lockFile bc853bd2-karma-phantomjs-launcher-0-2-1 karma-phantomjs-launcher@^0.2.1
+47 verbose lock karma-phantomjs-launcher@^0.2.1 /Users/kevinvanbeek/.npm/bc853bd2-karma-phantomjs-launcher-0-2-1.lock
+48 verbose cache add name="phantomjs" spec="^1.9.18" args=["phantomjs","^1.9.18"]
+49 verbose parsed url { protocol: null,
+49 verbose parsed url   slashes: null,
+49 verbose parsed url   auth: null,
+49 verbose parsed url   host: null,
+49 verbose parsed url   port: null,
+49 verbose parsed url   hostname: null,
+49 verbose parsed url   hash: null,
+49 verbose parsed url   search: null,
+49 verbose parsed url   query: null,
+49 verbose parsed url   pathname: '^1.9.18',
+49 verbose parsed url   path: '^1.9.18',
+49 verbose parsed url   href: '^1.9.18' }
+50 verbose addNamed [ 'phantomjs', '^1.9.18' ]
+51 verbose addNamed [ null, '>=1.9.18-0 <2.0.0-0' ]
+52 silly lockFile 55b27265-phantomjs-1-9-18 phantomjs@^1.9.18
+53 verbose lock phantomjs@^1.9.18 /Users/kevinvanbeek/.npm/55b27265-phantomjs-1-9-18.lock
+54 silly addNameRange { name: 'karma-jasmine',
+54 silly addNameRange   range: '>=0.3.6-0 <0.4.0-0',
+54 silly addNameRange   hasData: false }
+55 silly addNameRange { name: 'karma', range: '>=0.13.15-0 <0.14.0-0', hasData: false }
+56 silly addNameRange { name: 'karma-phantomjs-launcher',
+56 silly addNameRange   range: '>=0.2.1-0 <0.3.0-0',
+56 silly addNameRange   hasData: false }
+57 silly addNameRange { name: 'jasmine-core',
+57 silly addNameRange   range: '>=2.3.4-0 <3.0.0-0',
+57 silly addNameRange   hasData: false }
+58 silly addNameRange { name: 'phantomjs',
+58 silly addNameRange   range: '>=1.9.18-0 <2.0.0-0',
+58 silly addNameRange   hasData: false }
+59 verbose request where is /karma-phantomjs-launcher
+60 verbose request registry https://registry.npmjs.org/
+61 verbose request id 96f11704d959d276
+62 verbose url raw /karma-phantomjs-launcher
+63 verbose url resolving [ 'https://registry.npmjs.org/', './karma-phantomjs-launcher' ]
+64 verbose url resolved https://registry.npmjs.org/karma-phantomjs-launcher
+65 verbose request where is https://registry.npmjs.org/karma-phantomjs-launcher
+66 info trying registry request attempt 1 at 20:18:24
+67 verbose etag "EEMNQ435DUKQM829ZBH7CAQUL"
+68 http GET https://registry.npmjs.org/karma-phantomjs-launcher
+69 verbose request where is /karma-jasmine
+70 verbose request registry https://registry.npmjs.org/
+71 verbose url raw /karma-jasmine
+72 verbose url resolving [ 'https://registry.npmjs.org/', './karma-jasmine' ]
+73 verbose url resolved https://registry.npmjs.org/karma-jasmine
+74 verbose request where is https://registry.npmjs.org/karma-jasmine
+75 info trying registry request attempt 1 at 20:18:24
+76 verbose etag "N3U0Y5TZ8EAAGMTKGI6QJ5OY"
+77 http GET https://registry.npmjs.org/karma-jasmine
+78 verbose request where is /jasmine-core
+79 verbose request registry https://registry.npmjs.org/
+80 verbose url raw /jasmine-core
+81 verbose url resolving [ 'https://registry.npmjs.org/', './jasmine-core' ]
+82 verbose url resolved https://registry.npmjs.org/jasmine-core
+83 verbose request where is https://registry.npmjs.org/jasmine-core
+84 info trying registry request attempt 1 at 20:18:24
+85 verbose etag "9F907MLSJIRVRWH01MI60GXS"
+86 http GET https://registry.npmjs.org/jasmine-core
+87 verbose request where is /karma
+88 verbose request registry https://registry.npmjs.org/
+89 verbose url raw /karma
+90 verbose url resolving [ 'https://registry.npmjs.org/', './karma' ]
+91 verbose url resolved https://registry.npmjs.org/karma
+92 verbose request where is https://registry.npmjs.org/karma
+93 info trying registry request attempt 1 at 20:18:24
+94 verbose etag "4ZKXQS0R1G9RSQKRBWOQE3ELH"
+95 http GET https://registry.npmjs.org/karma
+96 verbose request where is /phantomjs
+97 verbose request registry https://registry.npmjs.org/
+98 verbose url raw /phantomjs
+99 verbose url resolving [ 'https://registry.npmjs.org/', './phantomjs' ]
+100 verbose url resolved https://registry.npmjs.org/phantomjs
+101 verbose request where is https://registry.npmjs.org/phantomjs
+102 info trying registry request attempt 1 at 20:18:24
+103 verbose etag "BHA32HKGE8G5GAU12G1ATRL3D"
+104 http GET https://registry.npmjs.org/phantomjs
+105 http 304 https://registry.npmjs.org/karma-phantomjs-launcher
+106 silly registry.get cb [ 304,
+106 silly registry.get   { date: 'Sun, 06 Dec 2015 04:18:24 GMT',
+106 silly registry.get     via: '1.1 varnish',
+106 silly registry.get     'cache-control': 'max-age=60',
+106 silly registry.get     etag: '"EEMNQ435DUKQM829ZBH7CAQUL"',
+106 silly registry.get     age: '45',
+106 silly registry.get     connection: 'keep-alive',
+106 silly registry.get     'x-served-by': 'cache-sjc3123-SJC',
+106 silly registry.get     'x-cache': 'HIT',
+106 silly registry.get     'x-cache-hits': '1',
+106 silly registry.get     'x-timer': 'S1449375504.697169,VS0,VE0',
+106 silly registry.get     vary: 'Accept' } ]
+107 verbose etag https://registry.npmjs.org/karma-phantomjs-launcher from cache
+108 silly addNameRange number 2 { name: 'karma-phantomjs-launcher',
+108 silly addNameRange   range: '>=0.2.1-0 <0.3.0-0',
+108 silly addNameRange   hasData: true }
+109 silly addNameRange versions [ 'karma-phantomjs-launcher',
+109 silly addNameRange   [ '0.0.1',
+109 silly addNameRange     '0.0.2',
+109 silly addNameRange     '0.0.3',
+109 silly addNameRange     '0.1.0',
+109 silly addNameRange     '0.1.1',
+109 silly addNameRange     '0.1.2',
+109 silly addNameRange     '0.1.3',
+109 silly addNameRange     '0.1.4',
+109 silly addNameRange     '0.2.0',
+109 silly addNameRange     '0.2.1' ] ]
+110 verbose addNamed [ 'karma-phantomjs-launcher', '0.2.1' ]
+111 verbose addNamed [ '0.2.1', '0.2.1' ]
+112 silly lockFile f1fe25fe-karma-phantomjs-launcher-0-2-1 karma-phantomjs-launcher@0.2.1
+113 verbose lock karma-phantomjs-launcher@0.2.1 /Users/kevinvanbeek/.npm/f1fe25fe-karma-phantomjs-launcher-0-2-1.lock
+114 silly lockFile f1fe25fe-karma-phantomjs-launcher-0-2-1 karma-phantomjs-launcher@0.2.1
+115 silly lockFile f1fe25fe-karma-phantomjs-launcher-0-2-1 karma-phantomjs-launcher@0.2.1
+116 silly lockFile bc853bd2-karma-phantomjs-launcher-0-2-1 karma-phantomjs-launcher@^0.2.1
+117 silly lockFile bc853bd2-karma-phantomjs-launcher-0-2-1 karma-phantomjs-launcher@^0.2.1
+118 http 200 https://registry.npmjs.org/karma-jasmine
+119 silly registry.get cb [ 200,
+119 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+119 silly registry.get     etag: '"4L8U1FQJPI6XGKAUBPPGBOE6F"',
+119 silly registry.get     'content-type': 'application/json',
+119 silly registry.get     'cache-control': 'max-age=60',
+119 silly registry.get     'content-length': '35150',
+119 silly registry.get     'accept-ranges': 'bytes',
+119 silly registry.get     date: 'Sun, 06 Dec 2015 04:18:24 GMT',
+119 silly registry.get     via: '1.1 varnish',
+119 silly registry.get     age: '0',
+119 silly registry.get     connection: 'keep-alive',
+119 silly registry.get     'x-served-by': 'cache-sjc3132-SJC',
+119 silly registry.get     'x-cache': 'HIT',
+119 silly registry.get     'x-cache-hits': '1',
+119 silly registry.get     'x-timer': 'S1449375504.696630,VS0,VE42',
+119 silly registry.get     vary: 'Accept' } ]
+120 silly addNameRange number 2 { name: 'karma-jasmine',
+120 silly addNameRange   range: '>=0.3.6-0 <0.4.0-0',
+120 silly addNameRange   hasData: true }
+121 silly addNameRange versions [ 'karma-jasmine',
+121 silly addNameRange   [ '0.0.1',
+121 silly addNameRange     '0.0.2',
+121 silly addNameRange     '0.0.3',
+121 silly addNameRange     '0.1.0',
+121 silly addNameRange     '0.1.1',
+121 silly addNameRange     '0.1.2',
+121 silly addNameRange     '0.1.3',
+121 silly addNameRange     '0.1.4',
+121 silly addNameRange     '0.1.5',
+121 silly addNameRange     '0.2.0',
+121 silly addNameRange     '0.2.1',
+121 silly addNameRange     '0.2.2',
+121 silly addNameRange     '0.2.3',
+121 silly addNameRange     '0.3.0',
+121 silly addNameRange     '0.3.1',
+121 silly addNameRange     '0.3.2',
+121 silly addNameRange     '0.3.3',
+121 silly addNameRange     '0.3.4',
+121 silly addNameRange     '0.3.5',
+121 silly addNameRange     '0.3.6',
+121 silly addNameRange     '0.1.6' ] ]
+122 verbose addNamed [ 'karma-jasmine', '0.3.6' ]
+123 verbose addNamed [ '0.3.6', '0.3.6' ]
+124 silly lockFile 2fa33a7d-karma-jasmine-0-3-6 karma-jasmine@0.3.6
+125 verbose lock karma-jasmine@0.3.6 /Users/kevinvanbeek/.npm/2fa33a7d-karma-jasmine-0-3-6.lock
+126 silly lockFile 2fa33a7d-karma-jasmine-0-3-6 karma-jasmine@0.3.6
+127 silly lockFile 2fa33a7d-karma-jasmine-0-3-6 karma-jasmine@0.3.6
+128 silly lockFile b71cba10-karma-jasmine-0-3-6 karma-jasmine@^0.3.6
+129 silly lockFile b71cba10-karma-jasmine-0-3-6 karma-jasmine@^0.3.6
+130 http 200 https://registry.npmjs.org/jasmine-core
+131 silly registry.get cb [ 200,
+131 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+131 silly registry.get     etag: '"8V68F1HB314X11CYAQZET1NM0"',
+131 silly registry.get     'content-type': 'application/json',
+131 silly registry.get     'cache-control': 'max-age=60',
+131 silly registry.get     'content-length': '22344',
+131 silly registry.get     'accept-ranges': 'bytes',
+131 silly registry.get     date: 'Sun, 06 Dec 2015 04:18:24 GMT',
+131 silly registry.get     via: '1.1 varnish',
+131 silly registry.get     age: '0',
+131 silly registry.get     connection: 'keep-alive',
+131 silly registry.get     'x-served-by': 'cache-sjc3127-SJC',
+131 silly registry.get     'x-cache': 'HIT',
+131 silly registry.get     'x-cache-hits': '1',
+131 silly registry.get     'x-timer': 'S1449375504.695866,VS0,VE87',
+131 silly registry.get     vary: 'Accept' } ]
+132 silly addNameRange number 2 { name: 'jasmine-core',
+132 silly addNameRange   range: '>=2.3.4-0 <3.0.0-0',
+132 silly addNameRange   hasData: true }
+133 silly addNameRange versions [ 'jasmine-core',
+133 silly addNameRange   [ '2.0.0',
+133 silly addNameRange     '2.0.1',
+133 silly addNameRange     '2.0.4',
+133 silly addNameRange     '2.1.0',
+133 silly addNameRange     '2.1.1',
+133 silly addNameRange     '2.1.2',
+133 silly addNameRange     '2.1.3',
+133 silly addNameRange     '2.2.0',
+133 silly addNameRange     '2.3.0',
+133 silly addNameRange     '2.3.2',
+133 silly addNameRange     '2.3.3',
+133 silly addNameRange     '2.3.4',
+133 silly addNameRange     '2.4.0',
+133 silly addNameRange     '2.4.1' ] ]
+134 verbose addNamed [ 'jasmine-core', '2.4.1' ]
+135 verbose addNamed [ '2.4.1', '2.4.1' ]
+136 silly lockFile a93289d2-jasmine-core-2-4-1 jasmine-core@2.4.1
+137 verbose lock jasmine-core@2.4.1 /Users/kevinvanbeek/.npm/a93289d2-jasmine-core-2-4-1.lock
+138 silly lockFile 1afc0382-mine-core-jasmine-core-2-4-1-tgz https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz
+139 verbose lock https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz /Users/kevinvanbeek/.npm/1afc0382-mine-core-jasmine-core-2-4-1-tgz.lock
+140 verbose addRemoteTarball [ 'https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz',
+140 verbose addRemoteTarball   '6f83ab3a0f16951722ce07d206c773d57cc838be' ]
+141 info retry fetch attempt 1 at 20:18:24
+142 verbose fetch to= /var/folders/cj/3xcyf5hx1f527q9fn9f6y5y00000gn/T/npm-53908-rzTZDKSk/registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz
+143 http GET https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz
+144 http 200 https://registry.npmjs.org/phantomjs
+145 silly registry.get cb [ 200,
+145 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+145 silly registry.get     etag: '"3Y4EPGO57FEYDKWUYJIZ7GBTS"',
+145 silly registry.get     'content-type': 'application/json',
+145 silly registry.get     'cache-control': 'max-age=60',
+145 silly registry.get     'content-length': '102214',
+145 silly registry.get     'accept-ranges': 'bytes',
+145 silly registry.get     date: 'Sun, 06 Dec 2015 04:18:24 GMT',
+145 silly registry.get     via: '1.1 varnish',
+145 silly registry.get     age: '0',
+145 silly registry.get     connection: 'keep-alive',
+145 silly registry.get     'x-served-by': 'cache-sjc3134-SJC',
+145 silly registry.get     'x-cache': 'HIT',
+145 silly registry.get     'x-cache-hits': '1',
+145 silly registry.get     'x-timer': 'S1449375504.696254,VS0,VE85',
+145 silly registry.get     vary: 'Accept' } ]
+146 silly addNameRange number 2 { name: 'phantomjs',
+146 silly addNameRange   range: '>=1.9.18-0 <2.0.0-0',
+146 silly addNameRange   hasData: true }
+147 silly addNameRange versions [ 'phantomjs',
+147 silly addNameRange   [ '0.0.1',
+147 silly addNameRange     '0.0.2',
+147 silly addNameRange     '0.0.3',
+147 silly addNameRange     '0.0.4',
+147 silly addNameRange     '0.0.5',
+147 silly addNameRange     '0.0.6',
+147 silly addNameRange     '0.0.7',
+147 silly addNameRange     '0.0.8',
+147 silly addNameRange     '0.0.9',
+147 silly addNameRange     '0.1.0',
+147 silly addNameRange     '0.1.1',
+147 silly addNameRange     '0.2.0',
+147 silly addNameRange     '0.2.1',
+147 silly addNameRange     '0.2.2',
+147 silly addNameRange     '0.2.3',
+147 silly addNameRange     '0.2.4',
+147 silly addNameRange     '0.2.5',
+147 silly addNameRange     '0.2.6',
+147 silly addNameRange     '1.8.0-1',
+147 silly addNameRange     '1.8.1-1',
+147 silly addNameRange     '1.8.1-2',
+147 silly addNameRange     '1.8.1-3',
+147 silly addNameRange     '1.8.2-0',
+147 silly addNameRange     '1.8.2-1',
+147 silly addNameRange     '1.8.2-2',
+147 silly addNameRange     '1.9.0-0',
+147 silly addNameRange     '1.9.0-1',
+147 silly addNameRange     '1.9.0-2',
+147 silly addNameRange     '1.9.0-3',
+147 silly addNameRange     '1.9.0-4',
+147 silly addNameRange     '1.9.0-5',
+147 silly addNameRange     '1.9.0-6',
+147 silly addNameRange     '1.9.1-0',
+147 silly addNameRange     '1.9.1-2',
+147 silly addNameRange     '1.9.1-3',
+147 silly addNameRange     '1.9.1-4',
+147 silly addNameRange     '1.9.1-5',
+147 silly addNameRange     '1.9.1-6',
+147 silly addNameRange     '1.9.1-7',
+147 silly addNameRange     '1.9.1-8',
+147 silly addNameRange     '1.9.1-9',
+147 silly addNameRange     '1.9.2-0',
+147 silly addNameRange     '1.9.2-1',
+147 silly addNameRange     '1.9.2-2',
+147 silly addNameRange     '1.9.2-3',
+147 silly addNameRange     '1.9.2-4',
+147 silly addNameRange     '1.9.2-5',
+147 silly addNameRange     '1.9.2-6',
+147 silly addNameRange     '1.9.6-0',
+147 silly addNameRange     '1.9.7-1',
+147 silly addNameRange     '1.9.7-3',
+147 silly addNameRange     '1.9.7-4',
+147 silly addNameRange     '1.9.7-5',
+147 silly addNameRange     '1.9.7-6',
+147 silly addNameRange     '1.9.7-7',
+147 silly addNameRange     '1.9.7-8',
+147 silly addNameRange     '1.9.7-9',
+147 silly addNameRange     '1.9.7-10',
+147 silly addNameRange     '1.9.7-11',
+147 silly addNameRange     '1.9.7-12',
+147 silly addNameRange     '1.9.7-13',
+147 silly addNameRange     '1.9.7-14',
+147 silly addNameRange     '1.9.7-15',
+147 silly addNameRange     '1.8.2-3',
+147 silly addNameRange     '1.9.8',
+147 silly addNameRange     '1.9.9',
+147 silly addNameRange     '1.9.10',
+147 silly addNameRange     '1.9.11',
+147 silly addNameRange     '1.9.12',
+147 silly addNameRange     '1.9.13',
+147 silly addNameRange     '1.9.15',
+147 silly addNameRange     '1.9.16',
+147 silly addNameRange     '1.9.17',
+147 silly addNameRange     '1.9.18',
+147 silly addNameRange     '1.9.19' ] ]
+148 verbose addNamed [ 'phantomjs', '1.9.19' ]
+149 verbose addNamed [ '1.9.19', '1.9.19' ]
+150 silly lockFile 8b5cce72-phantomjs-1-9-19 phantomjs@1.9.19
+151 verbose lock phantomjs@1.9.19 /Users/kevinvanbeek/.npm/8b5cce72-phantomjs-1-9-19.lock
+152 silly lockFile 05bbef9d-g-phantomjs-phantomjs-1-9-19-tgz https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.19.tgz
+153 verbose lock https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.19.tgz /Users/kevinvanbeek/.npm/05bbef9d-g-phantomjs-phantomjs-1-9-19-tgz.lock
+154 verbose addRemoteTarball [ 'https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.19.tgz',
+154 verbose addRemoteTarball   'a7f2cef5eba7343e1a729ce9922a95a6d0a11c07' ]
+155 info retry fetch attempt 1 at 20:18:24
+156 verbose fetch to= /var/folders/cj/3xcyf5hx1f527q9fn9f6y5y00000gn/T/npm-53908-rzTZDKSk/registry.npmjs.org/phantomjs/-/phantomjs-1.9.19.tgz
+157 http GET https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.19.tgz
+158 http 200 https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz
+159 silly lockFile 1afc0382-mine-core-jasmine-core-2-4-1-tgz https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz
+160 silly lockFile 1afc0382-mine-core-jasmine-core-2-4-1-tgz https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz
+161 silly lockFile a93289d2-jasmine-core-2-4-1 jasmine-core@2.4.1
+162 silly lockFile a93289d2-jasmine-core-2-4-1 jasmine-core@2.4.1
+163 silly lockFile a159a41e-jasmine-core-2-3-4 jasmine-core@^2.3.4
+164 silly lockFile a159a41e-jasmine-core-2-3-4 jasmine-core@^2.3.4
+165 http 200 https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.19.tgz
+166 silly lockFile 05bbef9d-g-phantomjs-phantomjs-1-9-19-tgz https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.19.tgz
+167 silly lockFile 05bbef9d-g-phantomjs-phantomjs-1-9-19-tgz https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.19.tgz
+168 silly lockFile 8b5cce72-phantomjs-1-9-19 phantomjs@1.9.19
+169 silly lockFile 8b5cce72-phantomjs-1-9-19 phantomjs@1.9.19
+170 silly lockFile 55b27265-phantomjs-1-9-18 phantomjs@^1.9.18
+171 silly lockFile 55b27265-phantomjs-1-9-18 phantomjs@^1.9.18
+172 http 200 https://registry.npmjs.org/karma
+173 silly registry.get cb [ 200,
+173 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+173 silly registry.get     etag: '"E58SS93RFZK5197Z2QFQ1RCTZ"',
+173 silly registry.get     'content-type': 'application/json',
+173 silly registry.get     'cache-control': 'max-age=60',
+173 silly registry.get     'content-length': '1100905',
+173 silly registry.get     'accept-ranges': 'bytes',
+173 silly registry.get     date: 'Sun, 06 Dec 2015 04:18:24 GMT',
+173 silly registry.get     via: '1.1 varnish',
+173 silly registry.get     age: '11',
+173 silly registry.get     connection: 'keep-alive',
+173 silly registry.get     'x-served-by': 'cache-sjc3124-SJC',
+173 silly registry.get     'x-cache': 'HIT',
+173 silly registry.get     'x-cache-hits': '1',
+173 silly registry.get     'x-timer': 'S1449375504.642187,VS0,VE3',
+173 silly registry.get     vary: 'Accept' } ]
+174 silly addNameRange number 2 { name: 'karma', range: '>=0.13.15-0 <0.14.0-0', hasData: true }
+175 silly addNameRange versions [ 'karma',
+175 silly addNameRange   [ '0.8.0',
+175 silly addNameRange     '0.9.0-dart',
+175 silly addNameRange     '0.8.1',
+175 silly addNameRange     '0.8.2',
+175 silly addNameRange     '0.8.3',
+175 silly addNameRange     '0.9.0',
+175 silly addNameRange     '0.8.4',
+175 silly addNameRange     '0.9.1',
+175 silly addNameRange     '0.8.5',
+175 silly addNameRange     '0.9.2',
+175 silly addNameRange     '0.9.2-dart',
+175 silly addNameRange     '0.9.3',
+175 silly addNameRange     '0.8.6',
+175 silly addNameRange     '0.9.4',
+175 silly addNameRange     '0.8.7',
+175 silly addNameRange     '0.9.5',
+175 silly addNameRange     '0.9.6',
+175 silly addNameRange     '0.8.8',
+175 silly addNameRange     '0.9.7',
+175 silly addNameRange     '0.9.8',
+175 silly addNameRange     '0.10.0',
+175 silly addNameRange     '0.10.1',
+175 silly addNameRange     '0.10.2',
+175 silly addNameRange     '0.11.0',
+175 silly addNameRange     '0.11.1',
+175 silly addNameRange     '0.10.3',
+175 silly addNameRange     '0.10.4',
+175 silly addNameRange     '0.11.2',
+175 silly addNameRange     '0.11.3',
+175 silly addNameRange     '0.10.5',
+175 silly addNameRange     '0.11.4',
+175 silly addNameRange     '0.11.5',
+175 silly addNameRange     '0.10.6',
+175 silly addNameRange     '0.11.6',
+175 silly addNameRange     '0.10.7',
+175 silly addNameRange     '0.11.7',
+175 silly addNameRange     '0.11.8',
+175 silly addNameRange     '0.11.9',
+175 silly addNameRange     '0.10.8',
+175 silly addNameRange     '0.11.10',
+175 silly addNameRange     '0.11.11',
+175 silly addNameRange     '0.11.12',
+175 silly addNameRange     '0.11.11-dev',
+175 silly addNameRange     '0.10.9',
+175 silly addNameRange     '0.11.12-dev',
+175 silly addNameRange     '0.11.12-dev2',
+175 silly addNameRange     '0.11.13',
+175 silly addNameRange     '0.11.14',
+175 silly addNameRange     '0.12.0',
+175 silly addNameRange     '0.10.10',
+175 silly addNameRange     '0.12.1',
+175 silly addNameRange     '0.12.2',
+175 silly addNameRange     '0.12.3',
+175 silly addNameRange     '0.12.4',
+175 silly addNameRange     '0.12.5',
+175 silly addNameRange     '0.12.6',
+175 silly addNameRange     '0.12.6-beta-43e6e28',
+175 silly addNameRange     '0.12.7',
+175 silly addNameRange     '0.12.8',
+175 silly addNameRange     '0.12.9',
+175 silly addNameRange     '0.12.10',
+175 silly addNameRange     '0.12.11',
+175 silly addNameRange     '0.12.12',
+175 silly addNameRange     '0.12.11-beta-3029418',
+175 silly addNameRange     '0.12.13',
+175 silly addNameRange     '0.12.14',
+175 silly addNameRange     '0.12.15',
+175 silly addNameRange     '0.12.16',
+175 silly addNameRange     '0.12.16-beta-905422d',
+175 silly addNameRange     '0.12.17',
+175 silly addNameRange     '0.12.18',
+175 silly addNameRange     '0.12.19',
+175 silly addNameRange     '0.12.20',
+175 silly addNameRange     '0.12.21',
+175 silly addNameRange     '0.12.22',
+175 silly addNameRange     '0.12.23',
+175 silly addNameRange     '0.12.24',
+175 silly addNameRange     '0.12.24-beta-6cf7955',
+175 silly addNameRange     '0.12.25',
+175 silly addNameRange     '0.12.25-beta-37a7958',
+175 silly addNameRange     '0.12.25-beta-ad5bc24',
+175 silly addNameRange     '0.12.26',
+175 silly addNameRange     '0.12.27',
+175 silly addNameRange     '0.12.28',
+175 silly addNameRange     '0.12.28-beta-b9be580',
+175 silly addNameRange     '0.12.29',
+175 silly addNameRange     '0.12.30',
+175 silly addNameRange     '0.12.31',
+175 silly addNameRange     '0.12.28-beta-f65c864',
+175 silly addNameRange     '0.12.24-dev-test',
+175 silly addNameRange     '0.12.24-dev-socketio10',
+175 silly addNameRange     '0.12.24-dev-socketio10-2',
+175 silly addNameRange     '0.12.32-beta.0',
+175 silly addNameRange     '0.12.32',
+175 silly addNameRange     '0.13.0-rc.0',
+175 silly addNameRange     '0.12.33',
+175 silly addNameRange     '0.13.0-rc.1',
+175 silly addNameRange     '0.12.34',
+175 silly addNameRange     '0.13.0-rc.2',
+175 silly addNameRange     '0.12.35',
+175 silly addNameRange     '0.13.0-rc.3',
+175 silly addNameRange     '0.12.36',
+175 silly addNameRange     '0.13.0-rc.4',
+175 silly addNameRange     '0.12.37',
+175 silly addNameRange     '0.13.0-rc.5',
+175 silly addNameRange     '0.13.0-rc.6',
+175 silly addNameRange     '0.13.0-rc.7',
+175 silly addNameRange     '0.13.0-rc.8',
+175 silly addNameRange     '0.13.0-rc.9',
+175 silly addNameRange     '0.13.0',
+175 silly addNameRange     '0.13.1',
+175 silly addNameRange     '0.13.2',
+175 silly addNameRange     '0.13.3',
+175 silly addNameRange     '0.13.4',
+175 silly addNameRange     '0.13.5',
+175 silly addNameRange     '0.13.6',
+175 silly addNameRange     '0.13.7',
+175 silly addNameRange     '0.13.8',
+175 silly addNameRange     '0.13.9',
+175 silly addNameRange     '0.13.10',
+175 silly addNameRange     '0.13.11',
+175 silly addNameRange     '0.13.12',
+175 silly addNameRange     '0.13.13',
+175 silly addNameRange     '0.13.14',
+175 silly addNameRange     '0.13.15' ] ]
+176 verbose addNamed [ 'karma', '0.13.15' ]
+177 verbose addNamed [ '0.13.15', '0.13.15' ]
+178 silly lockFile 55bca6fd-karma-0-13-15 karma@0.13.15
+179 verbose lock karma@0.13.15 /Users/kevinvanbeek/.npm/55bca6fd-karma-0-13-15.lock
+180 silly lockFile 55bca6fd-karma-0-13-15 karma@0.13.15
+181 silly lockFile 55bca6fd-karma-0-13-15 karma@0.13.15
+182 silly lockFile f21878e0-karma-0-13-15 karma@^0.13.15
+183 silly lockFile f21878e0-karma-0-13-15 karma@^0.13.15
+184 error Error: EACCES, mkdir '/Users/kevinvanbeek/.npm/jasmine-core/2.4.1'
+184 error  { [Error: EACCES, mkdir '/Users/kevinvanbeek/.npm/jasmine-core/2.4.1']
+184 error   errno: 3,
+184 error   code: 'EACCES',
+184 error   path: '/Users/kevinvanbeek/.npm/jasmine-core/2.4.1' }
+185 error Please try running this command again as root/Administrator.
+186 error System Darwin 15.0.0
+187 error command "node" "/usr/local/bin/npm" "install"
+188 error cwd /Users/kevinvanbeek/Desktop/angular-options-git
+189 error node -v v0.10.35
+190 error npm -v 1.4.28
+191 error path /Users/kevinvanbeek/.npm/jasmine-core/2.4.1
+192 error code EACCES
+193 error errno 3
+194 error stack Error: EACCES, mkdir '/Users/kevinvanbeek/.npm/jasmine-core/2.4.1'
+195 verbose exit [ 3, true ]

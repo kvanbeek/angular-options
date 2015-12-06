@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .controller('SongsSearchController', function(iTunes, $location) {
   	var vm = this;
   	vm.previousSearches = [];

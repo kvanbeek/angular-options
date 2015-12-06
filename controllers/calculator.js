@@ -1,11 +1,15 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .controller('CalculatorController', function(OptionCalculator) {
     // console.log(artist, $routeParams);
 
 
     var option = this;
     option.greeks = false;
+
+    console.log(OptionCalculator.callOptionProfitLoss(55.91, 48, 8.25));
+    // console.log(OptionCalculator.putOptionProfitLoss(55.91, 48, 0.3));
+    console.log(OptionCalculator.writtenCallOptionProfitLoss(55.91, 48, 8.25));
 
 
 

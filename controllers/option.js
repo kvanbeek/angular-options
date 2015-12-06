@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .controller('OptionController', function(chain, puts, quote, dates, OptionCalculator, $routeParams) {
     // console.log(artist, $routeParams);
 

@@ -1,6 +1,6 @@
 (function() {
 
-	var app = angular.module('itunes-search-app', ['ngRoute', 'n3-line-chart']);
+	var app = angular.module('option-graphs', ['ngRoute', 'n3-line-chart']);
 
 	app.config(function($routeProvider, $locationProvider) {
 		$routeProvider

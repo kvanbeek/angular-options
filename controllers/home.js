@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .controller('HomeController', function(OptionCalculator, $location) {
   	var home = this;
 

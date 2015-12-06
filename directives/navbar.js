@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .directive('navBar', function() {
   	return {
   		restrict: 'E',

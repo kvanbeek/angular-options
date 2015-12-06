@@ -1,5 +1,5 @@
 angular
-  .module('itunes-search-app')
+  .module('option-graphs')
   .controller('ArtistController', function(artist, genres, $routeParams) {
     // console.log(artist, $routeParams);
     var vm = this;
